@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # ##################################################
 # Ubuntu更新與配置
@@ -121,9 +121,9 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 
 
 # 自動加載 .bashrc 或 .zshrc，根據當前使用的 shell
-if [ "$SHELL" == */bash ]; then
+if [[ "$SHELL" == */bash ]]; then
     source ~/.bashrc
-elif [ "$SHELL" == */zsh ]; then
+elif [[ "$SHELL" == */zsh ]]; then
     source ~/.zshrc
 fi
 
