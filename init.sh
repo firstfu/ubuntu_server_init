@@ -4,11 +4,10 @@
 # 更新套件
 sudo apt update -y && sudo apt upgrade -y
 # 安裝常用套件
-sudo apt install -y curl wget git vim net-tools htop
+sudo apt install -y curl wget git vim net-tools openssh-server htop fail2ban
 # 安裝中文字型
 # sudo apt install -y fonts-wqy-zenhei fonts-wqy-microhei
-# 安裝ssh server
-sudo apt install openssh-server -y
+
 
 
 
@@ -61,21 +60,19 @@ echo "Docker 和 Docker Compose 安裝完成"
 # ##################################################
 # 添加Deadsnakes PPA
 sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update -y
+# 获取最新版本的 Python3
+LATEST_PYTHON=$(apt list | grep -oP '^python3\.\d+(?=/)' | sort -V | tail -1)
+# 安装最新版本的 Python
+sudo apt install -y $LATEST_PYTHON
+# 显示安装的 Python 版本
+$LATEST_PYTHON --version
+# 输出完成信息
+echo "Python3 最新版本安装完成"
 
 
-# 獲取最新版本的Python3
-latest_python=$(apt list | grep -oP '^python3\.\d+(?=/)' | sort -V | tail -1)
-
-# 安裝最新版本的Python
-sudo apt install "$latest_python" -y
-
-# 顯示安裝的Python版本
-$latest_python --version
-
-# 輸出完成訊息
-echo "python3最新版本安裝完成"
 
 
-# ##################################################
-#
-# ##################################################
+
+
+echo "系统初始化完成！"
