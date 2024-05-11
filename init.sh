@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # ##################################################
 # Ubuntu更新與配置
@@ -89,9 +89,9 @@ echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm"
 echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshrc
 
 # 自动加载配置更改
-if [[ "$SHELL" == */bash ]]; then
+if [ "$SHELL" == */bash ]; then
     source ~/.bashrc
-elif [[ "$SHELL" == */zsh ]]; then
+elif [ "$SHELL" == */zsh ]; then
     source ~/.zshrc
 fi
 
@@ -121,9 +121,9 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 
 
 # 自動加載 .bashrc 或 .zshrc，根據當前使用的 shell
-if [[ "$SHELL" == */bash ]]; then
+if [ "$SHELL" == */bash ]; then
     source ~/.bashrc
-elif [[ "$SHELL" == */zsh ]]; then
+elif [ "$SHELL" == */zsh ]; then
     source ~/.zshrc
 fi
 
