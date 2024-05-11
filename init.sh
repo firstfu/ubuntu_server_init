@@ -71,8 +71,32 @@ $LATEST_PYTHON --version
 echo "Python3 最新版本安装完成"
 
 
+# ##################################################
+# 安裝pyenv
+# ##################################################
+curl https://pyenv.run | bash
+# 設定環境變數
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+# 向 .bashrc 或 .zshrc 写入环境变量设置
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+# 为 zsh 用户也进行设置，如果用户同时使用 bash 和 zsh
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 
 
+# 自動加載 .bashrc 或 .zshrc，根據當前使用的 shell
+if [[ "$SHELL" == */bash ]]; then
+    source ~/.bashrc
+elif [[ "$SHELL" == */zsh ]]; then
+    source ~/.zshrc
+fi
 
 
 echo "系统初始化完成！"
