@@ -10,8 +10,6 @@ sudo apt install -y curl wget git vim net-tools openssh-server htop fail2ban
 
 
 
-
-
 # ##################################################
 # Docker安裝
 # ##################################################
@@ -72,6 +70,30 @@ echo "Python3 最新版本安装完成"
 
 
 # ##################################################
+# 安裝nvm
+# ##################################################
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# 自动写入 nvm 初始化到 .bashrc 和 .zshrc
+echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.bashrc
+
+echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshrc
+
+# 自动加载配置更改
+if [[ "$SHELL" == */bash ]]; then
+    source ~/.bashrc
+elif [[ "$SHELL" == */zsh ]]; then
+    source ~/.zshrc
+fi
+
+echo "nvm 安装完成"
+
+
+
+
+# ##################################################
 # 安裝pyenv
 # ##################################################
 curl https://pyenv.run | bash
@@ -97,6 +119,8 @@ if [[ "$SHELL" == */bash ]]; then
 elif [[ "$SHELL" == */zsh ]]; then
     source ~/.zshrc
 fi
+
+echo "pyenv 安装完成"
 
 
 echo "系统初始化完成！"
