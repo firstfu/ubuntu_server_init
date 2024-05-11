@@ -5,6 +5,11 @@
 sudo apt update -y && sudo apt upgrade -y
 # 安裝常用套件
 sudo apt install -y curl wget git vim net-tools openssh-server htop fail2ban
+sudo apt install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+libreadline-dev libbz2-dev
+
 # 安裝中文字型
 # sudo apt install -y fonts-wqy-zenhei fonts-wqy-microhei
 
