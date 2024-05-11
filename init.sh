@@ -89,9 +89,9 @@ echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm"
 echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshrc
 
 # 自动加载配置更改
-if [ "$SHELL" == */bash ]; then
+if [["$SHELL" == */bash ]]; then
     source ~/.bashrc
-elif [ "$SHELL" == */zsh ]; then
+elif [[ "$SHELL" == */zsh ]]; then
     source ~/.zshrc
 fi
 
